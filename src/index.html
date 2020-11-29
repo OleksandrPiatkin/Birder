@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Birder</title>
+</head>
+
+<body>
+  <header class="header header--hidden" id="header">
+    <div class="header__menu-button" id="menu-button">
+      <div class="header__menu-bar header__menu-bar--1"></div>
+      <div class="header__menu-bar header__menu-bar--2"></div>
+    </div>
+
+    <div class="nav-container">
+      <a class="nav-container__logo" href="#listenBox"></a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__list-item"><a href="#history">Historia</a></li>
+          <li class="nav__list-item"><a href="#save">Zachowane</a></li>
+          <li class="nav__list-item"><a href="#settings">Ustawienia</a></li>
+          <li class="nav__list-item"><a href="#app">O aplikacii</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="enter" id="enter">
+      <div class="enter__logo"></div>
+      <h1 class="enter__title">BIRDER</h1>
+    </section>
+
+    <section class="listen-box main__block display-none" id="listenBox">
+      <div class="block__container">
+        <div class="loader">
+
+          <div class="loader__piece left"></div>
+          <div class="loader__piece right"></div>
+          <div class="loader__logo"></div>
+        </div>
+      </div>
+        <button class="listen-box__button" id="startListen">Start</button>
+      </div>
+    </section>
+
+    <!-- Bird section start -->
+    <section class="answer main__block display-none" id="birdCard">
+      <div class="block__container">
+        
+      </div>
+      <div>
+        <button class="listen-box__button" id="closeAnswer">Close</button>
+      </div>
+    </section>
+    <!-- Bird section end -->
+
+    <section class="history main__block display-none" id="history">
+      <h1>Historia</h1>
+      <!-- place for 'Historia' content-->
+    </section>
+
+    <section class="save main__block display-none" id="save">
+      <h1>Zachowane</h1>
+      <!-- place for 'Zachowane' content-->
+    </section>
+
+    <section class="settings main__block display-none" id="settings">
+      <h1>Ustawienia</h1>
+      <!-- place for 'Ustawienia' content-->
+    </section>
+
+    <section class="app main__block display-none" id="app">
+      <h1>O aplikacii</h1>
+      <!-- place for 'O aplikacii' content-->
+    </section>
+
+  </main>
+  <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+  <script src="/bundle.js"></script>
+</body>
+
+</html>
