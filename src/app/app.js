@@ -168,9 +168,9 @@ class ListenBlock {
         .then(data => {
           console.log('THE DATA', data[0]);
 
-          // app.body.moveToPage('#birdCard');
-          console.log(app.body.moveToPage);
-          
+          app.body.moveToPage('#birdCard');
+
+          app.body.main.birdBlock.render(data[0]);
           //place for render function which should draw Bird Page
           // { name, description. imageUrl }
 
@@ -207,20 +207,65 @@ class BirdBlock {
   constructor() {
     this.birdCard = document.getElementById('birdCard');
     this.closeButton = document.getElementById('closeAnswer');
+    this.birdContent = document.getElementById('birdContent');
+
     // {url, name, prediction}
-    // this.name = name;
-    // this.url = url;
-    // this.pred = prediction;
+    this.name = '';
+    this.nameL = '';
+    this.url = '';
+    this.prediction = '';
 
     this.closeButton.addEventListener('click', this.closeBirdBlock.bind(this));
   }
 
-
   closeBirdBlock() {
     this.birdCard.classList.add('display-none');
+    app.body.moveToPage('#listenBox');
+    app.body.moveToPage('#listenBox');
   }
 
+
+
+  render({ URL, name, nameL, prediction }) {
+    this.name = name;
+    this.name = nameL;
+    this.url = URL;
+    this.prediction = prediction;
+
+    this.birdContent.innerHTML = '';
+
+    const span = document.createElement('span');
+    span.innerHTML = name;
+    const italic = document.createElement('i');
+    italic.innerHTML = nameL;
+    const header = document.createElement('h3');
+    header.appendChild(span);
+    header.appendChild(italic);
+
+    
+    const birdImg = document.createElement('img');
+    birdImg.src = URL;
+    birdImg.alt = name;
+
+    const birdText = document.createElement('p');
+    birdText.innerHTML = prediction;
+    const birdInfo = document.createElement('div');
+    // birdInfo.className = 'info_scroll';
+    birdInfo.appendChild(birdImg);
+    birdInfo.appendChild(birdText);
+
+    
+    
+    
+    this.birdContent.appendChild(header);
+    this.birdContent.appendChild(birdInfo);
+
+      // this.birdContent.innerHTML = `${URL} ${name} ${prediction}`;
+
+  }
 }
+
+
 
 class Main {
   constructor(clickOnEnterScreen) {
@@ -272,7 +317,7 @@ class Body {
 
     this.header.addEventListener('click', this.clickOnLink.bind(this), false);
 
-    return this.body;
+    // return this.body;
   }
 
   toggleMenu() {
@@ -310,8 +355,10 @@ class Body {
         element.classList.remove('display-none');
       }
     });
+    if (hash !== "#birdCard") {
+      this.toggleMenu();
+    }
 
-    this.toggleMenu();
   }
 }
 
